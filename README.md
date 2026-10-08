@@ -58,6 +58,6 @@ Todos usan datos públicos o sintéticos. Ninguno contiene datos, archivos ni c�
 
 ### Contacto
 
-LinkedIn: [tu URL de LinkedIn] · Correo: [tu correo]
+LinkedIn: www.linkedin.com/in/yenimorenodata · Correo: jenny.moreno67@gmail.com
 
 Abierta a roles remotos de datos y a proyectos freelance (dashboards de BI, automatización de procesos, calidad del dato).
