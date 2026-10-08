@@ -15,8 +15,8 @@ Data analyst and process-automation specialist. Chemical Engineer with an MSc in
 | 01 | [Data quality assessment](./01-calidad-del-dato) | Data quality | Quality dimensions, a DQ score and a phased improvement plan on a messy public dataset | In progress |
 | 02 | [Monthly process automation](./02-automatizacion-mensual) | Automation (Python) | Load, validate, calculate and generate PDFs and draft emails from monthly input files | In progress |
 | 03 | [Power BI dashboard](./03-dashboard-power-bi) | BI | Data model, DAX measures and a custom Deneb/Vega-Lite heatmap | In progress |
-| 04 | [Energy demand forecasting (ARIMAX/SARIMAX)](./04-pronostico-demanda-energia) | Forecasting | Time-series modelling of Colombia's daily electricity demand. My part of a team master's thesis | Done, being polished |
-| — | [Exercises](./ejercicios) | Practice | Smaller exercises kept for reference | — |
+| 04 | [Energy demand forecasting (ARIMAX/SARIMAX)](./Energy_Demand_Forecasting_ARIMAX_SARIMAX) | Forecasting | Time-series modelling of Colombia's daily electricity demand. My part of a team master's thesis | Done, being polished |
+| — | [Exercises](./Regression_Models) | Practice | Smaller exercises kept for reference | — |
 
 ### Skills
 
@@ -45,8 +45,8 @@ Analista de datos y especialista en automatización de procesos. Ingeniera Quím
 | 01 | [Diagnóstico de calidad del dato](./01-calidad-del-dato) | Calidad del dato | Dimensiones de calidad, DQ Score y plan por fases sobre un dataset público desordenado | En curso |
 | 02 | [Automatización de un proceso mensual](./02-automatizacion-mensual) | Automatización (Python) | Carga, validación, cálculo y generación de PDFs y correos en borrador a partir de archivos mensuales | En curso |
 | 03 | [Dashboard en Power BI](./03-dashboard-power-bi) | BI | Modelo de datos, medidas DAX y un heatmap propio con Deneb/Vega-Lite | En curso |
-| 04 | [Pronóstico de demanda de energía (ARIMAX/SARIMAX)](./04-pronostico-demanda-energia) | Pronóstico | Series de tiempo sobre la demanda diaria de electricidad en Colombia. Mi parte de un TFM en equipo | Hecho, en revisión |
-| — | [Ejercicios](./ejercicios) | Práctica | Ejercicios menores conservados como referencia | — |
+| 04 | [Pronóstico de demanda de energía (ARIMAX/SARIMAX)](./Energy_Demand_Forecasting_ARIMAX_SARIMAX) | Pronóstico | Series de tiempo sobre la demanda diaria de electricidad en Colombia. Mi parte de un TFM en equipo | Hecho, en revisión |
+| — | [Ejercicios](./Regression_Models) | Práctica | Ejercicios menores conservados como referencia | — |
 
 ### Habilidades
 
