@@ -14,7 +14,9 @@
 
 - **Source:** [SECOP II - Contratos Electrónicos](https://www.datos.gov.co/Estad-sticas-Nacionales/SECOP-II-Contratos-Electr-nicos/jbjy-vk9h) (dataset `jbjy-vk9h`), published by Colombia Compra Eficiente on datos.gov.co.
 - **Licence:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Any data derived from it in this folder is shared under the same licence.
-- **Size:** about 5.7 million contracts and 95 columns. The analysis uses a fixed snapshot so the results can be reproduced (see below).
+- **Size:** about 5.7 million contracts and 95 columns.
+- **Snapshot:** `data/secop2_contratos_2026-10-27_50000.parquet`, 50,000 contracts downloaded on 27 Oct 2026. The source reloads the whole dataset every day (every row gets a new internal id and contract values keep changing), so the API cannot return the same sample twice. The frozen Parquet is what makes the results reproducible; `id_contrato` lets you look up the same contracts again later.
+- **Personal data:** 18 columns about people (legal representative, spending and payment officers, supervisor, bank account) are replaced by a `<column>_informado` true/false flag. When the supplier is a person rather than a company (85% of the sample), the name is removed and the ID number is replaced by a pseudonym (salted HMAC), keeping its length and whether it is digits only. Free-text fields such as `objeto_del_contrato` are kept as published and may still mention names.
 
 ### Approach
 
@@ -27,8 +29,12 @@
 
 ### Reproduce
 
+The analysis reads the Parquet in `data/`. To build a new snapshot from the live source:
+
 ```bash
-python src/descargar_snapshot.py --filas 100000
+pip install pandas pyarrow
+python src/descargar_snapshot.py --filas 50000
+python src/construir_parquet.py data/secop2_contratos_<fecha>_50000.csv
 ```
 
 ---
@@ -43,7 +49,9 @@ python src/descargar_snapshot.py --filas 100000
 
 - **Fuente:** [SECOP II - Contratos Electrónicos](https://www.datos.gov.co/Estad-sticas-Nacionales/SECOP-II-Contratos-Electr-nicos/jbjy-vk9h) (dataset `jbjy-vk9h`), publicado por Colombia Compra Eficiente en datos.gov.co.
 - **Licencia:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Los datos derivados en esta carpeta se comparten bajo la misma licencia.
-- **Tamaño:** cerca de 5,7 millones de contratos y 95 columnas. El análisis usa un snapshot fijo para que los resultados sean reproducibles (ver abajo).
+- **Tamaño:** cerca de 5,7 millones de contratos y 95 columnas.
+- **Snapshot:** `data/secop2_contratos_2026-10-27_50000.parquet`, 50.000 contratos descargados el 27 de octubre de 2026. La fuente recarga el dataset completo cada día (cada fila recibe un id interno nuevo y los valores de los contratos siguen cambiando), así que la API no puede devolver dos veces la misma muestra. El Parquet congelado es lo que hace reproducibles los resultados; `id_contrato` permite volver a consultar los mismos contratos más adelante.
+- **Datos personales:** 18 columnas sobre personas (representante legal, ordenadores del gasto y del pago, supervisor, cuenta bancaria) se reemplazan por una bandera `<columna>_informado` verdadero/falso. Cuando el proveedor es una persona y no una empresa (85 % de la muestra), se elimina el nombre y el documento se reemplaza por un seudónimo (HMAC con sal), conservando su longitud y si es solo dígitos. Los campos de texto libre como `objeto_del_contrato` se dejan como se publicaron y pueden mencionar nombres.
 
 ### Enfoque
 
@@ -56,6 +64,10 @@ python src/descargar_snapshot.py --filas 100000
 
 ### Reproducir
 
+El análisis lee el Parquet de `data/`. Para generar un snapshot nuevo desde la fuente:
+
 ```bash
-python src/descargar_snapshot.py --filas 100000
+pip install pandas pyarrow
+python src/descargar_snapshot.py --filas 50000
+python src/construir_parquet.py data/secop2_contratos_<fecha>_50000.csv
 ```

@@ -6,7 +6,7 @@ interno del registro para que el mismo límite devuelva siempre las mismas filas
 mientras el dataset no se reprocese.
 
 Uso:
-    python src/descargar_snapshot.py --filas 100000
+    python src/descargar_snapshot.py --filas 50000
 """
 
 import argparse
@@ -57,6 +57,6 @@ def descargar(filas: int) -> pathlib.Path:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--filas", type=int, default=100_000)
+    parser.add_argument("--filas", type=int, default=50_000)
     args = parser.parse_args()
     print(f"Snapshot guardado en {descargar(args.filas)}")
