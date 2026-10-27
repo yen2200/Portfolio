@@ -22,17 +22,29 @@
 
 | Phase | Output | Content |
 |---|---|---|
-| 1. Profiling | `notebooks/01_perfilado.ipynb` | Types, nulls, cardinality, ranges and distributions |
+| 1. Profiling ✅ | [`notebooks/01_perfilado.ipynb`](notebooks/01_perfilado.ipynb) | Types, nulls, cardinality, ranges and distributions |
 | 2. Rules by dimension | `src/` | Completeness, uniqueness, validity, consistency, accuracy and timeliness rules |
 | 3. DQ Score | `notebooks/02_dq_score.ipynb` | Score per rule, per dimension and overall, with weights and thresholds |
 | 4. Improvement plan | This README | Quick wins, medium-term and structural actions with target KPIs |
+
+
+### Profiling findings (phase 1)
+
+- 30 of 77 source columns have missing data; in 20 of them it is disguised as text ("No definido", "No aplica"), which a plain null count misses.
+- 12 columns are dead: 4 dates are always empty and 8 environmental, peace-agreement and document-type fields are over 98% "No aplica".
+- `ultima_actualizacion` is missing for 38% of contracts, so timeliness can barely be measured.
+- 364 contracts are worth 0 and 26 are worth under 1,000 pesos (mostly exactly 1 peso): placeholder values.
+- 1,820 contracts (3.6%) start before they were signed; 29 have more paid than the contract value.
+- 68 citizen ID numbers have 11 or more digits (valid ones have 6 to 10) and 5 contracts were awarded to a minor's ID card (Tarjeta de Identidad).
+
+![Missing data by column](outputs/01_completitud.png)
 
 ### Reproduce
 
 The analysis reads the Parquet in `data/`. To build a new snapshot from the live source:
 
 ```bash
-pip install pandas pyarrow
+pip install pandas pyarrow matplotlib
 python src/descargar_snapshot.py --filas 50000
 python src/construir_parquet.py data/secop2_contratos_<fecha>_50000.csv
 ```
@@ -57,17 +69,29 @@ python src/construir_parquet.py data/secop2_contratos_<fecha>_50000.csv
 
 | Fase | Entregable | Contenido |
 |---|---|---|
-| 1. Perfilado | `notebooks/01_perfilado.ipynb` | Tipos, nulos, cardinalidad, rangos y distribuciones |
+| 1. Perfilado ✅ | [`notebooks/01_perfilado.ipynb`](notebooks/01_perfilado.ipynb) | Tipos, nulos, cardinalidad, rangos y distribuciones |
 | 2. Reglas por dimensión | `src/` | Reglas de completitud, unicidad, validez, consistencia, exactitud y oportunidad |
 | 3. DQ Score | `notebooks/02_dq_score.ipynb` | Puntaje por regla, por dimensión y global, con pesos y umbrales |
 | 4. Plan de mejora | Este README | Acciones rápidas, de mediano plazo y estructurales, con KPI objetivo |
+
+
+### Hallazgos del perfilado (fase 1)
+
+- 30 de las 77 columnas de la fuente tienen faltantes; en 20 de ellas vienen disfrazados de texto ("No definido", "No aplica"), que un conteo de nulos normal no detecta.
+- 12 columnas están muertas: 4 fechas siempre vacías y 8 campos ambientales, del acuerdo de paz y de documentos tipo con más del 98 % en "No aplica".
+- `ultima_actualizacion` falta en el 38 % de los contratos, así que la oportunidad casi no se puede medir.
+- 364 contratos valen 0 y 26 valen menos de 1.000 pesos (la mayoría exactamente 1 peso): valores de relleno.
+- 1.820 contratos (3,6 %) empiezan antes de firmarse; 29 tienen pagado más que el valor del contrato.
+- 68 cédulas tienen 11 dígitos o más (las válidas tienen de 6 a 10) y 5 contratos se adjudicaron a una Tarjeta de Identidad, documento de menores de edad.
+
+![Faltantes por columna](outputs/01_completitud.png)
 
 ### Reproducir
 
 El análisis lee el Parquet de `data/`. Para generar un snapshot nuevo desde la fuente:
 
 ```bash
-pip install pandas pyarrow
+pip install pandas pyarrow matplotlib
 python src/descargar_snapshot.py --filas 50000
 python src/construir_parquet.py data/secop2_contratos_<fecha>_50000.csv
 ```
