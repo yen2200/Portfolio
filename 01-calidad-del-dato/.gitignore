@@ -1,0 +1,2 @@
+# Los snapshots completos son grandes: se regeneran con src/descargar_snapshot.py
+data/*.csv
