@@ -23,7 +23,7 @@
 | Phase | Output | Content |
 |---|---|---|
 | 1. Profiling ✅ | [`notebooks/01_perfilado.ipynb`](notebooks/01_perfilado.ipynb) | Types, nulls, cardinality, ranges and distributions |
-| 2. Rules by dimension | `src/` | Completeness, uniqueness, validity, consistency, accuracy and timeliness rules |
+| 2. Rules by dimension 🔄 | [`src/reglas_dq.py`](src/reglas_dq.py), [`outputs/02_resultado_reglas.csv`](outputs/02_resultado_reglas.csv) | 25 rules across completeness, validity, consistency, uniqueness, accuracy and timeliness, with unit tests; thresholds under review |
 | 3. DQ Score | `notebooks/02_dq_score.ipynb` | Score per rule, per dimension and overall, with weights and thresholds |
 | 4. Improvement plan | This README | Quick wins, medium-term and structural actions with target KPIs |
 
@@ -44,10 +44,21 @@
 The analysis reads the Parquet in `data/`. To build a new snapshot from the live source:
 
 ```bash
-pip install pandas pyarrow matplotlib
+pip install pandas pyarrow matplotlib pytest
 python src/descargar_snapshot.py --filas 50000
 python src/construir_parquet.py data/secop2_contratos_<fecha>_50000.csv
 ```
+
+To run the quality rules and their tests on the snapshot:
+
+```bash
+python src/reglas_dq.py
+python -m pytest tests
+```
+
+### How I worked
+
+I built this project with the help of an AI assistant (Claude). The scope, the privacy treatment, the rules, the thresholds and the conclusions are my decisions.
 
 ---
 
@@ -70,7 +81,7 @@ python src/construir_parquet.py data/secop2_contratos_<fecha>_50000.csv
 | Fase | Entregable | Contenido |
 |---|---|---|
 | 1. Perfilado ✅ | [`notebooks/01_perfilado.ipynb`](notebooks/01_perfilado.ipynb) | Tipos, nulos, cardinalidad, rangos y distribuciones |
-| 2. Reglas por dimensión | `src/` | Reglas de completitud, unicidad, validez, consistencia, exactitud y oportunidad |
+| 2. Reglas por dimensión 🔄 | [`src/reglas_dq.py`](src/reglas_dq.py), [`outputs/02_resultado_reglas.csv`](outputs/02_resultado_reglas.csv) | 25 reglas de completitud, validez, consistencia, unicidad, exactitud y oportunidad, con pruebas unitarias; umbrales en revisión |
 | 3. DQ Score | `notebooks/02_dq_score.ipynb` | Puntaje por regla, por dimensión y global, con pesos y umbrales |
 | 4. Plan de mejora | Este README | Acciones rápidas, de mediano plazo y estructurales, con KPI objetivo |
 
@@ -91,7 +102,18 @@ python src/construir_parquet.py data/secop2_contratos_<fecha>_50000.csv
 El análisis lee el Parquet de `data/`. Para generar un snapshot nuevo desde la fuente:
 
 ```bash
-pip install pandas pyarrow matplotlib
+pip install pandas pyarrow matplotlib pytest
 python src/descargar_snapshot.py --filas 50000
 python src/construir_parquet.py data/secop2_contratos_<fecha>_50000.csv
 ```
+
+Para ejecutar las reglas de calidad y sus pruebas sobre el snapshot:
+
+```bash
+python src/reglas_dq.py
+python -m pytest tests
+```
+
+### Cómo trabajé
+
+Desarrollé este proyecto con la asistencia de una IA (Claude). El alcance, el tratamiento de la privacidad, las reglas, los umbrales y las conclusiones son decisiones mías.
