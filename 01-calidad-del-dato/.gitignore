@@ -1,0 +1,7 @@
+# Los snapshots CSV son grandes: se regeneran con src/descargar_snapshot.py
+data/*.csv
+data/*.json
+# Sal del seudónimo de proveedores: nunca se publica
+data/.sal
+__pycache__/
+.pytest_cache/

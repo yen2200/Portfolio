@@ -1,0 +1,26 @@
+id,dimension,descripcion,criticidad,aplicables,incumplen,cumplimiento_%,meta_%,estado
+COMP-01,Completitud,Fecha de firma informada,alta,50000,581,98.84,99.0,no cumple
+COMP-02,Completitud,Fecha de inicio informada,alta,50000,1111,97.78,99.0,no cumple
+COMP-03,Completitud,Fecha de fin informada,alta,50000,1,100.0,99.0,cumple
+COMP-04,Completitud,Tipo de documento del proveedor informado,alta,50000,91,99.82,99.0,cumple
+COMP-05,Completitud,Documento del proveedor informado,alta,50000,32,99.94,99.0,cumple
+COMP-06,Completitud,Objeto del contrato informado,alta,50000,85,99.83,99.0,cumple
+COMP-07,Completitud,Departamento informado,media,50000,1008,97.98,95.0,cumple
+COMP-08,Completitud,Ciudad informada,media,50000,10643,78.71,95.0,no cumple
+COMP-09,Completitud,Supervisor del contrato informado,alta,50000,16703,66.59,99.0,no cumple
+COMP-10,Completitud,Contrato modificado con fecha de la modificación,media,9554,377,96.05,95.0,cumple
+VAL-01,Validez,"Documento del proveedor con formato válido para su tipo (CC 6-10 dígitos, NIT 9-10)",alta,49709,345,99.31,99.0,cumple
+VAL-02,Validez,"Valor del contrato no es de relleno (≥ valor mínimo, salvo comodato)",alta,49895,301,99.4,99.0,cumple
+VAL-03,Validez,Estado del contrato en forma canónica (mayúscula inicial),baja,50000,7664,84.67,90.0,no cumple
+VAL-04,Validez,Sector en forma canónica (mayúscula inicial),baja,50000,5266,89.47,90.0,no cumple
+CONS-01,Consistencia,Fecha de fin no anterior a la de inicio,alta,48889,4,99.99,99.0,cumple
+CONS-02,Consistencia,Inicio no anterior a la firma,media,48724,1820,96.26,95.0,cumple
+CONS-03,Consistencia,Valor pagado no supera el valor del contrato,alta,50000,29,99.94,99.0,cumple
+CONS-04,Consistencia,Valor facturado no supera el valor del contrato,alta,50000,39,99.92,99.0,cumple
+CONS-05,Consistencia,Contrato cerrado o terminado con fecha de fin ya cumplida,media,22254,51,99.77,95.0,cumple
+CONS-06,Consistencia,Duración declarada (más días adicionados) coherente con las fechas,baja,44798,3780,91.56,90.0,cumple
+UNI-01,Unicidad,id_contrato único,alta,50000,0,100.0,99.0,cumple
+UNI-02,Unicidad,"Sin duplicado de negocio (entidad, referencia, proveedor, valor)",media,49968,0,100.0,95.0,cumple
+EXA-01,Exactitud,Valor no atípico para su tipo de contrato (aproximación a exactitud),baja,49636,123,99.75,90.0,cumple
+OPO-01,Oportunidad,"Estado al día: no sigue ""En ejecución"" meses después de su fecha de fin",media,15467,11398,26.31,95.0,no cumple
+NEG-01,Validez,Proveedor no identificado con Tarjeta de Identidad (menor de edad),alta,49909,5,99.99,99.0,cumple
