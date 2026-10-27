@@ -23,7 +23,7 @@
 | Phase | Output | Content |
 |---|---|---|
 | 1. Profiling ✅ | [`notebooks/01_perfilado.ipynb`](notebooks/01_perfilado.ipynb) | Types, nulls, cardinality, ranges and distributions |
-| 2. Rules by dimension 🔄 | [`src/reglas_dq.py`](src/reglas_dq.py), [`outputs/02_resultado_reglas.csv`](outputs/02_resultado_reglas.csv) | 25 rules across completeness, validity, consistency, uniqueness, accuracy and timeliness, with unit tests; thresholds under review |
+| 2. Rules by dimension ✅ | [`src/reglas_dq.py`](src/reglas_dq.py), [`outputs/02_resultado_reglas.csv`](outputs/02_resultado_reglas.csv) | 25 rules across completeness, validity, consistency, uniqueness, accuracy and timeliness, with unit tests; thresholds set |
 | 3. DQ Score | `notebooks/02_dq_score.ipynb` | Score per rule, per dimension and overall, with weights and thresholds |
 | 4. Improvement plan | This README | Quick wins, medium-term and structural actions with target KPIs |
 
@@ -81,7 +81,7 @@ I built this project with the help of an AI assistant (Claude). The scope, the p
 | Fase | Entregable | Contenido |
 |---|---|---|
 | 1. Perfilado ✅ | [`notebooks/01_perfilado.ipynb`](notebooks/01_perfilado.ipynb) | Tipos, nulos, cardinalidad, rangos y distribuciones |
-| 2. Reglas por dimensión 🔄 | [`src/reglas_dq.py`](src/reglas_dq.py), [`outputs/02_resultado_reglas.csv`](outputs/02_resultado_reglas.csv) | 25 reglas de completitud, validez, consistencia, unicidad, exactitud y oportunidad, con pruebas unitarias; umbrales en revisión |
+| 2. Reglas por dimensión ✅ | [`src/reglas_dq.py`](src/reglas_dq.py), [`outputs/02_resultado_reglas.csv`](outputs/02_resultado_reglas.csv) | 25 reglas de completitud, validez, consistencia, unicidad, exactitud y oportunidad, con pruebas unitarias; umbrales definidos |
 | 3. DQ Score | `notebooks/02_dq_score.ipynb` | Puntaje por regla, por dimensión y global, con pesos y umbrales |
 | 4. Plan de mejora | Este README | Acciones rápidas, de mediano plazo y estructurales, con KPI objetivo |
 

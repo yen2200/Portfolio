@@ -7,7 +7,7 @@ COMP-05,Completitud,Documento del proveedor informado,alta,50000,32,99.94,99.0,c
 COMP-06,Completitud,Objeto del contrato informado,alta,50000,85,99.83,99.0,cumple
 COMP-07,Completitud,Departamento informado,media,50000,1008,97.98,95.0,cumple
 COMP-08,Completitud,Ciudad informada,media,50000,10643,78.71,95.0,no cumple
-COMP-09,Completitud,Supervisor del contrato informado,media,50000,16703,66.59,95.0,no cumple
+COMP-09,Completitud,Supervisor del contrato informado,alta,50000,16703,66.59,99.0,no cumple
 COMP-10,Completitud,Contrato modificado con fecha de la modificación,media,9554,377,96.05,95.0,cumple
 VAL-01,Validez,"Documento del proveedor con formato válido para su tipo (CC 6-10 dígitos, NIT 9-10)",alta,49709,345,99.31,99.0,cumple
 VAL-02,Validez,"Valor del contrato no es de relleno (≥ valor mínimo, salvo comodato)",alta,49895,301,99.4,99.0,cumple

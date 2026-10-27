@@ -22,6 +22,8 @@ RAIZ = pathlib.Path(__file__).resolve().parent.parent
 SNAPSHOT = RAIZ / "data" / "secop2_contratos_2026-10-27_50000.parquet"
 FECHA_CORTE = pd.Timestamp("2026-10-27")
 
+# Valores y criticidades decididos por la autora el 2026-10-27. COMP-09 es alta
+# porque la supervisión de los contratos estatales es obligatoria (Ley 1474 de 2011).
 PARAMETROS = {
     # Por debajo de este valor (COP) se considera un valor de relleno, no un precio.
     "valor_minimo": 1_000,
@@ -183,7 +185,7 @@ REGLAS = [
     Regla("COMP-06", "Completitud", "Objeto del contrato informado", "alta", completitud("objeto_del_contrato")),
     Regla("COMP-07", "Completitud", "Departamento informado", "media", completitud("departamento")),
     Regla("COMP-08", "Completitud", "Ciudad informada", "media", completitud("ciudad")),
-    Regla("COMP-09", "Completitud", "Supervisor del contrato informado", "media",
+    Regla("COMP-09", "Completitud", "Supervisor del contrato informado", "alta",
           lambda p: _resultado(p["n_mero_de_documento_supervisor_informado"])),
     Regla("COMP-10", "Completitud", "Contrato modificado con fecha de la modificación", "media", modificado_con_fecha),
     Regla("VAL-01", "Validez", "Documento del proveedor con formato válido para su tipo (CC 6-10 dígitos, NIT 9-10)", "alta", documento_valido),
