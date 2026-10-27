@@ -2,8 +2,9 @@
 
 Fuente: https://www.datos.gov.co/d/jbjy-vk9h (Colombia Compra Eficiente),
 licencia CC BY-SA 4.0. Usa la API SODA de datos.gov.co, ordenando por el id
-interno del registro para que el mismo límite devuelva siempre las mismas filas
-mientras el dataset no se reprocese.
+interno del registro para que la paginación no repita ni salte filas. La fuente
+recarga el dataset completo cada día, así que otra descarga devuelve otra
+muestra: el snapshot reproducible es el Parquet que genera construir_parquet.py.
 
 Uso:
     python src/descargar_snapshot.py --filas 50000
